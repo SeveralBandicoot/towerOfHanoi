@@ -54,30 +54,34 @@ The only rule is that letters can NEVER be out of alphabetical order.
 
 using namespace std;
 
-void Board(); // prototype for board function 
+// prototypes vvv
+
+void Board(); 
 void tower(int &start, int &end, vector<char> &T1, vector<char> &T2, vector<char> &T3);// prototype for tower function 
 vector<char> T1{}; // tower 1 vector
 vector<char> T2{}; // tower 2 vector
 vector<char> T3{}; // tower 3 vector
+
 int main() {
-  bool pzleComplete = false; // bool puzzle complete variable set false 
-  char a = 'A', b = 'B', c = 'C'; // characters a b c d 
-  int srce, dest; // int variables source and destination 
+  bool pzlComlete = false; // bool puzzle complete variable set false 
+  char a = 'A', b = 'B', c = 'C'; // characters a b c 
+  int source, dest; // int variables source and destination 
 
   T1.push_back(a); // pushes a into T1 vector 
   T1.push_back(b); // pushes b into T1 vector 
   T1.push_back(c); // pushes c into T1 vector 
 
-  while (pzleComplete == false) {// while the puzzle complete variable is false
+  while (pzlComlete == false) {// while the puzzle complete variable is false
     Board();// displays current board 
     cout << "Enter your source:\n";
-    cin >> srce;// assigns userinput to source variable
+    cin >> source;// assigns userinput to source variable
     cout << "\nEnter your destination:\n";
     cin >> dest;// assings userinput to destination variable
-    tower(srce, dest, T1, T2, T3);// calls tower functon 
+    tower(source, dest, T1, T2, T3);// calls tower functon 
+
 
   if (T3.size() == 3 && T3[0] == 'A' && T3[1] == 'B' && T3[2] == 'C') {// checks if the T3 vector is full in length and is full in the order "A B C D"
-          pzleComplete = true;// if true, puzzle variable is set to true
+        pzlComlete = true;// if true, puzzle variable is set to true
       }
   }
   cout << "\nCongrats you completed the puzzle!\n";
@@ -85,6 +89,7 @@ int main() {
 
   return 0;
 } // end of program 
+
 
 void Board() {
   cout << "\tT1 "; // List all the Tiles on Tower 1
@@ -125,4 +130,4 @@ void Board() {
         } else {
             cout << "Invalid input\n";
         }
-    }
+}
